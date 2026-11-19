@@ -31,3 +31,47 @@ jobs:
         run: bundle exec jekyll build --baseurl "/LJT-Homepage"
         env:
           JEKYLL_ENV: production
+      - name: Verify generated content
+        run: |
+          set -euo pipefail
+          test -f _site/index.html
+          test -f _site/publications/index.html
+          test -f _site/publications/synlogic/index.html
+          index_strings=(
+            "Junteng Liu" "jliugi@connect.ust.hk" "Vicent0205" "tbK9jl4AAAAJ"
+            "junteng88716710" "HKUST NLP Group" "Shanghai Jiao Tong University"
+            "MINIMAX" "Tencent WXG" "Shanghai AI Lab" "Zifei Shan" "Yu Cheng"
+            "Junxian He" "Zhiyuan Honor Scholarship"
+            "LLM reasoning and reinforcement learning"
+            "Hallucination in vision-language models"
+            "LLM truthfulness and interpretability"
+            "SynLogic" "Perception Bottleneck" "Universal Truthfulness Hyperplane"
+            "In-Context Sharpness" "C-Eval" "Composing Parameter-Efficient Modules"
+          )
+          for s in "${index_strings[@]}"; do
+            grep -Fq "$s" _site/index.html || { echo "Missing in index.html: $s"; exit 1; }
+          done
+          pub_strings=(
+            "SynLogic" "Perception Bottleneck" "Universal Truthfulness Hyperplane"
+            "In-Context Sharpness" "C-Eval" "Composing Parameter-Efficient Modules"
+            "Yuanxiang Fan" "Weihao Zeng" "Shiqi Chen" "Yuzhen Huang" "Jinghan Zhang"
+            "EMNLP" "ICML" "NeurIPS" "arXiv"
+          )
+          for s in "${pub_strings[@]}"; do
+            grep -Fq "$s" _site/publications/index.html || { echo "Missing in publications index: $s"; exit 1; }
+          done
+          if grep -Fq "Paper Title Number" _site/publications/index.html; then
+            echo "Template publication title remains on publications page"; exit 1
+          fi
+          if grep -Fq "Your Sidebar Name" _site/index.html; then
+            echo "Template sidebar name remains on index"; exit 1
+          fi
+          if grep -Fq "Academic Pages is a ready-to-fork" _site/index.html; then
+            echo "Template about content remains on index"; exit 1
+          fi
+          if grep -Fq "sorted_publications" _site/publications/index.html; then
+            echo "Unrendered Liquid variable found"; exit 1
+          fi
+          grep -Fq "Vision4Chart" _site/publications/perception-bottleneck-vlm-chart-understanding/index.html
+          grep -Fq "Universal_Truthfulness_Hyperplane" _site/publications/universal-truthfulness-hyperplane/index.html
+          echo "All content verification checks passed."
