@@ -17,7 +17,7 @@ I graduated from Shanghai Jiao Tong University (SJTU) in June 2024 with a B.Eng.
 - **Current position:** First-year PhD candidate, HKUST NLP Group
 - **Doctoral program:** Ph.D. in Computer Science, Hong Kong University of Science and Technology (2024-Present)
 - **Undergraduate degree:** B.Eng., Shanghai Jiao Tong University (2020-2024; graduated June 2024)
-- **Research focus:** Natural language processing and machine learning
+- **Research focus:** Natural Language Processing and Machine Learning
 
 ## Academic Background
 
@@ -35,11 +35,11 @@ I graduated from Shanghai Jiao Tong University (SJTU) in June 2024 with a B.Eng.
 
 ## Skills & Research Interests
 
-- Natural language processing
-- Machine learning
-- LLM reasoning and reinforcement learning
-- Hallucination in vision-language models (VLMs)
-- LLM truthfulness and interpretability
+- Natural Language Processing
+- Machine Learning
+- LLM Reasoning and Reinforcement Learning
+- Hallucination in Vision-Language Models (VLM)
+- LLM Truthfulness and Interpretability
 
 ## Publications
 

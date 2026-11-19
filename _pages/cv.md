@@ -24,11 +24,11 @@ Research Experience
 
 Skills & Research Interests
 ======
-* Natural language processing
-* Machine learning
-* LLM reasoning and reinforcement learning
-* Hallucination in vision-language models (VLMs)
-* LLM truthfulness and interpretability
+* Natural Language Processing
+* Machine Learning
+* LLM Reasoning and Reinforcement Learning
+* Hallucination in Vision-Language Models (VLM)
+* LLM Truthfulness and Interpretability
 
 Publications
 ======
